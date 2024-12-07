@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\AoL_HCI_Backend.props" />
+</Project>
