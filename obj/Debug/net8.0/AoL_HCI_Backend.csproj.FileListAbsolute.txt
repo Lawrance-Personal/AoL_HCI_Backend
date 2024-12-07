@@ -57,3 +57,4 @@ D:\Coding Environment\AoL_HCI_Backend\obj\Debug\net8.0\refint\AoL_HCI_Backend.dl
 D:\Coding Environment\AoL_HCI_Backend\obj\Debug\net8.0\AoL_HCI_Backend.pdb
 D:\Coding Environment\AoL_HCI_Backend\obj\Debug\net8.0\AoL_HCI_Backend.genruntimeconfig.cache
 D:\Coding Environment\AoL_HCI_Backend\obj\Debug\net8.0\ref\AoL_HCI_Backend.dll
+D:\Coding Environment\AoL_HCI_Backend\obj\Debug\net8.0\AoL_HCI_Backend.sourcelink.json
