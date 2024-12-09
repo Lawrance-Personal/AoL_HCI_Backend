@@ -98,7 +98,7 @@ public record class CreateUserRecord
     [JsonProperty(nameof(RoleId))]
     public string RoleId { get; set; } = null!;
     [JsonProperty(nameof(DivisionId))]
-    public string DivisionId { get; set; } = null!;
+    public string? DivisionId { get; set; } = null!;
 
     public User ToModel()
     {

@@ -15,6 +15,7 @@ namespace AoL_HCI_Backend.Controllers
         private readonly IAuthenticationServices _authentication = authentication;
 
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<ReturnDataRecord<User>>> Create([FromHeader(Name = "Authorization")] string token, [FromHeader(Name = "Refresh-Token")] string refreshToken, CreateUserRecord createUser){
             Response.Headers.Append("Access-Control-Allow-Origin", "*");
             var tokenArr = token.Split(" ");

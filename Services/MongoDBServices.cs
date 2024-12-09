@@ -1,5 +1,6 @@
 using System;
 using AoL_HCI_Backend.Models;
+using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace AoL_HCI_Backend.Services;
@@ -36,7 +37,7 @@ public class MongoDBServices
     {
         var tasksCollection = GetCollection<Tasks>("Tasks");
         var jobsCollection = GetCollection<Job>("Jobs");
-        var subtaskCollection = GetCollection<SubTask>("Subtasks");
+        var subtaskCollection = GetCollection<SubTask>("SubTasks");
         if (subTask != null)
         {
             var parentTask = await tasksCollection.Find(t => t.Id == subTask.TaskId).FirstOrDefaultAsync();
@@ -59,14 +60,14 @@ public class MongoDBServices
 
     private void UpdateJobStatusAndProgress(Job job, List<Tasks> tasks)
     {
-        job.Progress = tasks.Count == 0 ? 0 : (int)(tasks.Count(t => t.Status == 2) / (double)tasks.Count);
+        job.Progress = tasks.Count == 0 ? 0 : (int)(tasks.Count(t => t.Status == 2) / (double)tasks.Count * 100);
         if(tasks.Count == 0) job.Status = 0;
         else job.Status = tasks.All(t => t.Status == 0) ? 0 : tasks.All(t => t.Status == 2) ? 2 : 1;
     }
 
     private void UpdateTaskStatusAndProgress(Tasks task, List<SubTask> subtasks)
     {
-        task.Progress = subtasks.Count == 0 ? 0 : (int)(subtasks.Count(s => s.Status == 2) / (double)subtasks.Count);
+        task.Progress = subtasks.Count == 0 ? 0 : (int)(subtasks.Count(s => s.Status == 2) / (double)subtasks.Count * 100);
         if(subtasks.Count == 0) task.Status = 0;
         else task.Status = subtasks.All(s => s.Status == 0) ? 0 : subtasks.All(s => s.Status == 2) ? 2 : 1;
     }

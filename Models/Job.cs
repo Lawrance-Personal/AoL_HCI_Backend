@@ -17,8 +17,6 @@ public class Job
     public string IssueDate { get; set; } = DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString();
     [BsonElement("DueDate")]
     public string DueDate { get; set; } = null!;
-    [BsonElement("TaskIds")]
-    public List<string> TaskIds { get; set; } = [];
     [BsonElement("Status")]
     public int Status { get; set; } = 0;
     [BsonElement("Progress")]

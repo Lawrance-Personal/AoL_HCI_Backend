@@ -6,11 +6,11 @@ namespace AoL_HCI_Backend.Contracts;
 public record class UpdateJobRecord
 {
     [JsonProperty(nameof(Issuer))]
-    public string Issuer { get; set; } = null!;
+    public string? Issuer { get; set; } = null!;
     [JsonProperty(nameof(Title))]
-    public string Title { get; set; } = null!;
+    public string? Title { get; set; } = null!;
     [JsonProperty(nameof(DueDate))]
-    public string DueDate { get; set; } = null!;
+    public string? DueDate { get; set; } = null!;
 
     public Job ReplaceModel(Job job)
     {
@@ -28,13 +28,13 @@ public record class UpdateJobRecord
 public record class UpdateSubTaskRecord
 {
     [JsonProperty(nameof(Title))]
-    public string Title { get; set; } = null!;
+    public string? Title { get; set; } = null!;
     [JsonProperty(nameof(Description))]
-    public string Description { get; set; } = null!;
+    public string? Description { get; set; } = null!;
     [JsonProperty(nameof(UserIds))]
-    public List<string> UserIds { get; set; } = null!;
+    public List<string>? UserIds { get; set; } = null!;
     [JsonProperty(nameof(DueDate))]
-    public string DueDate { get; set; } = null!;
+    public string? DueDate { get; set; } = null!;
 
     public SubTask ReplaceModel(SubTask subTask)
     {
@@ -55,13 +55,13 @@ public record class UpdateSubTaskRecord
 public record class UpdateTaskRecord
 {
     [JsonProperty(nameof(Title))]
-    public string Title { get; set; } = null!;
+    public string? Title { get; set; } = null!;
     [JsonProperty(nameof(DivisionId))]
-    public string DivisionId { get; set; } = null!;
+    public string? DivisionId { get; set; } = null!;
     [JsonProperty(nameof(SubTaskIds))]
-    public List<string> SubTaskIds { get; set; } = null!;
+    public List<string>? SubTaskIds { get; set; } = null!;
     [JsonProperty(nameof(DueDate))]
-    public string DueDate { get; set; } = null!;
+    public string? DueDate { get; set; } = null!;
 
     public Tasks ReplaceModel(Tasks task)
     {
@@ -82,15 +82,15 @@ public record class UpdateTaskRecord
 public record UpdateUserRecord
 {
     [JsonProperty(nameof(Name))]
-    public string Name { get; set; } = null!;
+    public string? Name { get; set; } = null!;
     [JsonProperty(nameof(Email))]
-    public string Email { get; set; } = null!;
+    public string? Email { get; set; } = null!;
     [JsonProperty(nameof(Password))]
-    public string Password { get; set; } = null!;
+    public string? Password { get; set; } = null!;
     [JsonProperty(nameof(RoleId))]
-    public string RoleId { get; set; } = null!;
+    public string? RoleId { get; set; } = null!;
     [JsonProperty(nameof(DivisionId))]
-    public string DivisionId { get; set; } = null!;
+    public string? DivisionId { get; set; } = null!;
 
     public User ReplaceModel(User user)
     {

@@ -18,5 +18,5 @@ public class User
     [BsonElement("DivisionId")]
     public string? DivisionId { get; set; } = null!;
     [BsonElement("SubTaskIds")]
-    public List<string> SubTaskIds { get; set; } = [];
+    public List<string>? SubTaskIds { get; set; } = [];
 }

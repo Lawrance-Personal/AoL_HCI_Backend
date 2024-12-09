@@ -37,6 +37,14 @@ namespace AoL_HCI_Backend.Controllers
             SubTask subTask = createSubTask.ToModel();
             await _database.GetCollection<SubTask>("SubTasks").InsertOneAsync(subTask);
             _database.SyncStatusSubTask(subTask);
+            foreach (string userId in subTask.UserIds){
+                User user = await _database.GetCollection<User>("Users").Find(u => u.Id == userId).FirstOrDefaultAsync();
+                if (user.SubTaskIds != null)
+                {
+                    user.SubTaskIds.Add(subTask.Id);
+                }
+                await _database.GetCollection<User>("Users").ReplaceOneAsync(u => u.Id == userId, user);
+            }
             return CreatedAtRoute(new { id = subTask.Id }, new ReturnDataRecord<SubTask>(subTask, newToken));
         }
 
