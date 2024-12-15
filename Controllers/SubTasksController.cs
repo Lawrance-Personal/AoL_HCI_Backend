@@ -73,8 +73,7 @@ namespace AoL_HCI_Backend.Controllers
             if(!string.IsNullOrEmpty(taskId)) filter &= filterBuilder.Eq(u => u.TaskId, taskId);
             if(!string.IsNullOrEmpty(userId)) filter &= filterBuilder.AnyEq(u => u.UserIds, userId);
             if(!string.IsNullOrEmpty(dueDate)){
-                var dueDateUnix = long.Parse(dueDate);
-                filter &= filterBuilder.Lt(u => long.Parse(u.DueDate), dueDateUnix);
+                filter &= filterBuilder.Lt(u => u.DueDate, dueDate);
             }
             if(status != null) filter &= filterBuilder.Eq(u => u.Status, status);
             return Ok(new ReturnListRecord<SubTask>(await _database.GetCollection<SubTask>("SubTasks").Find(filter).ToListAsync(), newToken));

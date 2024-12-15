@@ -1,6 +1,5 @@
 using System;
 using AoL_HCI_Backend.Models;
-using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace AoL_HCI_Backend.Services;

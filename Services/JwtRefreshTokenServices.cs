@@ -1,4 +1,5 @@
 using System;
+using System.Text.Json.Serialization;
 
 namespace AoL_HCI_Backend.Services;
 
@@ -18,6 +19,27 @@ internal sealed class JwtRefreshTokenServices(HttpClient httpClient) : IJwtRefre
             grant_type = "refresh_token",
             refresh_token = refreshToken
         });
-        return await response.Content.ReadFromJsonAsync<AuthToken>();
+        var token = await response.Content.ReadFromJsonAsync<Token>();
+        return token?.ToAuthToken();
+    }
+}
+
+public record Token
+{
+    [JsonPropertyName("id_token")]
+    public string IdToken { get; set; } = null!;
+    [JsonPropertyName("user_id")]
+    public string IdentityId { get; set; } = null!;
+    [JsonPropertyName("refresh_token")]
+    public string RefreshToken { get; set; } = null!;
+
+    public AuthToken ToAuthToken()
+    {
+        return new AuthToken
+        {
+            IdToken = IdToken,
+            IdentityId = IdentityId,
+            RefreshToken = RefreshToken
+        };
     }
 }

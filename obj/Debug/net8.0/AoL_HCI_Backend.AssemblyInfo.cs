@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AoL_HCI_Backend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f61f483a798b8871fe49324f9807abb58610934f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+70a27d13ab4e5941d000607bc765b7ad0081051e")]
 [assembly: System.Reflection.AssemblyProductAttribute("AoL_HCI_Backend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AoL_HCI_Backend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
